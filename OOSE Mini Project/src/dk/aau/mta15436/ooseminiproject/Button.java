@@ -1,46 +1,55 @@
 package dk.aau.mta15436.ooseminiproject;
 
-import processing.core.*;
-
 public class Button implements GUIElement
 {
-	private float x, y, w, h;
-	private String text;
-	private Main master;
+	final static int colorDefault = 0;
+	final static int colorHover = 16;
+	final static int colorPressed = 32;
+	final static int colorText = 255;
 	
-	public Button(Main master, String text, float x, float y, float w, float h)
-	{
-		this.master = master;
-		this.text = text;
-		this.x = x;
-		this.y = y;
-		this.w = w;
-		this.h = h;
-	}
+	protected Main master;
+	protected float x, y, w, h;
+	protected String text;
+	protected GUICallback callback;
 	
 	@Override
 	public void update()
 	{
-		// If the mouse is within our bounds
+		// If the mouse is within our bounds and the mouse is enabled
 		int mx = master.mouseX;
 		int my = master.mouseY;
-		if (x < mx && mx < x+w && y < my && my < y+h)
+		if (master.mouseEnabled && x < mx && mx < x+w && y < my && my < y+h)
 		{
-			master.fill(95);
+			master.fill(colorHover);
 			if (master.click)
 			{
-				PApplet.print("clicked " + text);
-				
+				// Call the callback given in the constructor
+				callback.call();
+			}
+			else if (master.mousePressed)
+			{
+				master.fill(colorPressed);
 			}
 		}
 		else // Mouse is not hovering over the button
 		{
-			master.fill(63);
+			master.fill(colorDefault);
 		}
 		// Draw me!
 		master.rect(x, y, w, h);
-		master.fill(255);
+		master.fill(colorText);
 		master.textSize(28);
 		master.text(text, x, y, w, h);
+	}
+	
+	public Button(Main master, String text, GUICallback callback, float x, float y, float w, float h)
+	{
+		this.master = master;
+		this.text = text;
+		this.callback = callback;
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
 	}
 }

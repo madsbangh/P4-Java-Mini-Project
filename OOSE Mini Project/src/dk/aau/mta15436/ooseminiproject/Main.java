@@ -4,10 +4,26 @@ import processing.core.*;
 
 public class Main extends PApplet
 {
-	private static final long serialVersionUID = 3286085431838033816L;
+	// Whether the mouse has been pressed this frame
 	public boolean click = false;
-	Button b = new Button(this, "Testing!", 100, 100, 200, 100);
+	// We can disable mouse clicking if we want
+	public boolean mouseEnabled = true;
 	
+	// Just because PApplet
+	private static final long serialVersionUID = 3286085431838033816L;
+	// The currently active room. We start in the menu
+	private Room currentRoom = new Menu(this);
+	
+	// Change the current room for the provided Room object
+	public void goToRoom(Room room)
+	{
+		currentRoom = room;
+		// Set click to false to avoid automatically pressing eventual elements in the next room
+		click = false;
+		// Re-enable mouse if it has been disabled
+		mouseEnabled = true;
+	}
+
 	public void setup()
 	{
 		size(400, 600);
@@ -17,8 +33,8 @@ public class Main extends PApplet
 	
 	public void draw()
 	{
-		background(32);
-		b.update();
+		// Update the current room so it can draw its elements and do its logic
+		currentRoom.update();
 		// Reset click to false every frame
 		click = false;
 	}
@@ -26,7 +42,10 @@ public class Main extends PApplet
 	public void mousePressed()
 	{
 		// Click is true for this frame
-		click = true;
+		if (mouseEnabled)
+		{
+			click = true;			
+		}
 	}
 
 	public static void main(String[] args)
