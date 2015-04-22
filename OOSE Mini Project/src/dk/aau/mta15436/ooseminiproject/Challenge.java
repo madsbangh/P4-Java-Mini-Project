@@ -1,5 +1,7 @@
 package dk.aau.mta15436.ooseminiproject;
 
+import java.util.Random;
+
 public abstract class Challenge extends Room
 {
 	private static final int COLOR_BACKGROUND = 34;
@@ -9,6 +11,8 @@ public abstract class Challenge extends Room
 	private int currentColor = COLOR_BACKGROUND;
 	private int alarm = -1;
 	private GUICallback alarmCallback;
+	
+	protected Random rand;
 	
 	// Callback for going to Danish training Room
 	private class GoToMenu implements GUICallback
@@ -62,7 +66,8 @@ public abstract class Challenge extends Room
 	@Override
 	protected void setup()
 	{
-		addElement(new Button(master, "Back", new GoToMenu(), 0, 0, 100, 50));
+		rand = new Random();
+		addElement(new Button(master, "Back", master.fontRegular, new GoToMenu(), 0, 0, 100, 50));
 	}
 
 	@Override

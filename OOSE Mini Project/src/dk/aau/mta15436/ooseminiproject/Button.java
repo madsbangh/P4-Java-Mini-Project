@@ -1,11 +1,15 @@
 package dk.aau.mta15436.ooseminiproject;
 
+import processing.core.PFont;
+
 public class Button implements GUIElement
 {
 	private static final int COLOR_DEFAULT = 0;
 	private static final int COLOR_HOVER = 16;
 	private static final int COLOR_PRESSED = 32;
 	private static final int COLOR_TEXT = 255;
+	
+	private PFont font;
 	
 	protected Main master;
 	protected float x, y, w, h;
@@ -38,14 +42,15 @@ public class Button implements GUIElement
 		// Draw me!
 		master.rect(x, y, w, h);
 		master.fill(COLOR_TEXT);
-		master.textSize(28);
+		master.textFont(font, 28);
 		master.text(text, x, y, w, h);
 	}
 	
-	public Button(Main master, String text, GUICallback callback, float x, float y, float w, float h)
+	public Button(Main master, String text, PFont font, GUICallback callback, float x, float y, float w, float h)
 	{
 		this.master = master;
 		this.text = text;
+		this.font = font;
 		this.callback = callback;
 		this.x = x;
 		this.y = y;
