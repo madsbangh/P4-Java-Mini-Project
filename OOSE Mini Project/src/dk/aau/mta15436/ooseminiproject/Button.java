@@ -30,6 +30,7 @@ public class Button implements GUIElement
 			if (master.click)
 			{
 				PApplet.print("clicked " + text);
+				
 			}
 		}
 		else // Mouse is not hovering over the button
@@ -39,6 +40,7 @@ public class Button implements GUIElement
 		// Draw me!
 		master.rect(x, y, w, h);
 		master.fill(255);
+		master.textSize(28);
 		master.text(text, x, y, w, h);
 	}
 }

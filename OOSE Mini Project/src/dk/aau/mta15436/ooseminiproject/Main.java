@@ -5,16 +5,13 @@ import processing.core.*;
 public class Main extends PApplet
 {
 	private static final long serialVersionUID = 3286085431838033816L;
-	
 	public boolean click = false;
-	PFont fontButton = createFont("Open Sans Light", 32);
 	Button b = new Button(this, "Testing!", 100, 100, 200, 100);
 	
 	public void setup()
 	{
 		size(400, 600);
 		textAlign(CENTER, CENTER);
-		textFont(fontButton, 32);
 		noStroke();
 	}
 	

@@ -15,4 +15,9 @@ public abstract class Room
 			element.update();
 		}
 	}
+	
+	public Room()
+	{
+		setup();
+	}
 }
