@@ -53,7 +53,7 @@ public abstract class Challenge extends Room
 	{
 		currentColor = COLOR_CORRECT;
 		master.mouseEnabled = false;
-		alarm = 60;
+		alarm = 26;
 		alarmCallback = callback;
 	}
 	
@@ -62,7 +62,7 @@ public abstract class Challenge extends Room
 	{
 		currentColor = COLOR_INCORRECT;
 		master.mouseEnabled = false;
-		alarm = 60;
+		alarm = 26;
 		alarmCallback = new Reset();
 	}
 	

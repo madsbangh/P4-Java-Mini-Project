@@ -18,12 +18,10 @@ public class Menu extends Room
 	// Callback for going to Danish training Room
 	private class GoToDanishChallenge implements GUICallback
 	{
-		@SuppressWarnings("static-access") // Debug (temporary)
 		@Override
 		public void call()
 		{
-			//master.goToRoom(new DanishChallenge(master));
-			master.println("-> Danish Challenge"); // Debug (temporary)
+			master.goToRoom(new DanishChallenge(master));
 		}
 	}
 
