@@ -6,6 +6,7 @@
 # Package Files #
 *.jar
 !core.jar
+!App.jar
 *.war
 *.ear
 
