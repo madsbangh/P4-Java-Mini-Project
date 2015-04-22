@@ -9,7 +9,7 @@ public abstract class Room
 	// Reference to the PApplet so we can pass it on to Buttons etc.
 	protected Main master;
 	
-	protected class GoToNextRoom implements GUICallback
+	public class GoToNextRoom implements GUICallback
 	{
 		private Room nextRoom;
 		

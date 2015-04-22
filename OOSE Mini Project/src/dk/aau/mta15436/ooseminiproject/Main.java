@@ -39,8 +39,8 @@ public class Main extends PApplet
 		// Create TranslationsManager. This will load the translations file
 		translationsManager = new TranslationsManager(this);
 		
-		fontJapanese = createFont("SimSun", 40);
-		fontRegular = createFont("Open Sans Light", 28);
+		fontJapanese = createFont("SimSun.ttc", 40);
+		fontRegular = createFont("OpenSans-Light.ttf", 28);
 		textFont(fontRegular);
 		
 		currentRoom = new Menu(this);

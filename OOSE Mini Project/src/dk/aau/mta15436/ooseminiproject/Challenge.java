@@ -13,6 +13,9 @@ public abstract class Challenge extends Room
 	private GUICallback alarmCallback;
 	
 	protected Random rand;
+	protected TranslationsProvider translationsProvider;
+	protected int[] indexes;
+	protected GUICallback[] callbacks;
 	
 	// Callback for going to Danish training Room
 	private class GoToMenu implements GUICallback
@@ -68,6 +71,25 @@ public abstract class Challenge extends Room
 	{
 		rand = new Random();
 		addElement(new Button(master, "Back", master.fontRegular, new GoToMenu(), 0, 0, 100, 50));
+		
+		// Choose a random index for the incorrect answers (which is not equal to the correct answer's index)
+		do
+		{
+			indexes[1] = master.translationsManager.getRandomIndex();
+		} while (indexes[1] == indexes[0]);
+		do
+		{
+			indexes[2] = master.translationsManager.getRandomIndex();
+		} while (indexes[2] == indexes[0] || indexes[2] == indexes[1]);
+		int pos = rand.nextInt(3);
+		for (int i=0; i<3; i++)
+		{
+			int index = (i + pos) % 3;
+			String word = master.translationsManager.getEnglishWord(indexes[index]);
+			float y = 225f + 125f*i;
+			GUICallback cb = callbacks[index];
+			addElement(new Button(master, word, master.fontRegular, cb, 25, y, 350, 100));
+		}
 	}
 
 	@Override

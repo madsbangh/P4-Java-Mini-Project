@@ -27,6 +27,54 @@ public class TranslationsManager
 		danishWords = data[3].split(",");
 	}
 	
+	public class JapaneseWordProvider implements TranslationsProvider
+	{
+		@Override
+		public int getNextIndex()
+		{
+			return getNextJapaneseIndex();
+		}
+
+		@Override
+		public String getWord(int index)
+		{
+			return getJapaneseWord(index);
+		}
+	}
+	public JapaneseWordProvider japaneseWordProvider;
+	
+	public class JapaneseCharProvider implements TranslationsProvider
+	{
+		@Override
+		public int getNextIndex()
+		{
+			return getNextJapaneseIndex();
+		}
+
+		@Override
+		public String getWord(int index)
+		{
+			return getJapaneseChar(index);
+		}
+	}
+	public JapaneseCharProvider japaneseCharProvider;
+	
+	public class DanishWordProvider implements TranslationsProvider
+	{
+		@Override
+		public int getNextIndex()
+		{
+			return getNextDanishIndex();
+		}
+
+		@Override
+		public String getWord(int index)
+		{
+			return getDanishWord(index);
+		}
+	}
+	public DanishWordProvider danishWordProvider;
+	
 	public String getEnglishWord(int index)
 	{
 		return englishWords[index];
@@ -71,5 +119,8 @@ public class TranslationsManager
 		this.master = master;
 		rand = new Random();
 		loadTransations();
+		japaneseWordProvider = new JapaneseWordProvider();
+		japaneseCharProvider = new JapaneseCharProvider();
+		danishWordProvider = new DanishWordProvider();
 	}
 }
