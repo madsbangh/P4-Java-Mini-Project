@@ -19,6 +19,7 @@ public class JapaneseChallenge extends Challenge
 		
 		// Create an array with the 3 possible answers. The first one is always the correct answer
 		int[] indexes = new int[3];
+		
 		indexes[0] = master.translationsManager.getNextJapaneseIndex();
 		
 		// Create the label displaying the Japanese word to be guessed
