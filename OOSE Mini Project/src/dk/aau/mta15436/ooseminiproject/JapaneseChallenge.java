@@ -26,7 +26,7 @@ public class JapaneseChallenge extends Challenge
 		
 		// indexes is an array with the 3 possible answers. The first one is always the correct answer
 		indexes[0] = translationsProvider.getNextIndex();
-		
+	
 		// Create the label displaying the Japanese word to be guessed
 		addElement(new Label(master, charsProvider.getWord(indexes[0]), master.fontJapanese, 40, 200, 100));
 		addElement(new Label(master, translationsProvider.getWord(indexes[0]), master.fontRegular, 20, 200, 150));
