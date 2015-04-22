@@ -2,10 +2,10 @@ package dk.aau.mta15436.ooseminiproject;
 
 public class Button implements GUIElement
 {
-	final static int colorDefault = 0;
-	final static int colorHover = 16;
-	final static int colorPressed = 32;
-	final static int colorText = 255;
+	private static final int COLOR_DEFAULT = 0;
+	private static final int COLOR_HOVER = 16;
+	private static final int COLOR_PRESSED = 32;
+	private static final int COLOR_TEXT = 255;
 	
 	protected Main master;
 	protected float x, y, w, h;
@@ -20,7 +20,7 @@ public class Button implements GUIElement
 		int my = master.mouseY;
 		if (master.mouseEnabled && x < mx && mx < x+w && y < my && my < y+h)
 		{
-			master.fill(colorHover);
+			master.fill(COLOR_HOVER);
 			if (master.click)
 			{
 				// Call the callback given in the constructor
@@ -28,16 +28,16 @@ public class Button implements GUIElement
 			}
 			else if (master.mousePressed)
 			{
-				master.fill(colorPressed);
+				master.fill(COLOR_PRESSED);
 			}
 		}
 		else // Mouse is not hovering over the button
 		{
-			master.fill(colorDefault);
+			master.fill(COLOR_DEFAULT);
 		}
 		// Draw me!
 		master.rect(x, y, w, h);
-		master.fill(colorText);
+		master.fill(COLOR_TEXT);
 		master.textSize(28);
 		master.text(text, x, y, w, h);
 	}

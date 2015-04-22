@@ -3,7 +3,7 @@ package dk.aau.mta15436.ooseminiproject;
 // The menu the user is presented with when starting the application
 public class Menu extends Room
 {
-	private static final int colorBackground = 48;
+	private static final int COLOR_BACKGROUND = 48;
 	
 	// Callback for going to Japanese training Room
 	private class GoToJapaneseChallenge implements GUICallback
@@ -37,7 +37,7 @@ public class Menu extends Room
 	@Override
 	protected void draw()
 	{
-		master.background(colorBackground);
+		master.background(COLOR_BACKGROUND);
 	}
 	
 	public Menu(Main master)

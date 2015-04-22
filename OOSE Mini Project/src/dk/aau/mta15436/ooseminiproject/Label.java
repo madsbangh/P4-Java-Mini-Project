@@ -2,7 +2,7 @@ package dk.aau.mta15436.ooseminiproject;
 
 public class Label implements GUIElement
 {
-	final static int color = 255;
+	private static final int COLOR = 255;
 	
 	private int x;
 	private int y;
@@ -12,7 +12,7 @@ public class Label implements GUIElement
 	@Override
 	public void update()
 	{
-		master.fill(color);
+		master.fill(COLOR);
 		master.text(text, x, y);
 	}
 

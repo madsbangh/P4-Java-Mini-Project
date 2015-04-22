@@ -2,11 +2,11 @@ package dk.aau.mta15436.ooseminiproject;
 
 public abstract class Challenge extends Room
 {
-	private static final int colorBackground = 34;
-	private static final int colorCorrect = 0x70AD37;
-	private static final int colorIncorrect = 0xC42D3F;
+	private static final int COLOR_BACKGROUND = 34;
+	private static final int COLOR_CORRECT = 0x70AD37;
+	private static final int COLOR_INCORRECT = 0xC42D3F;
 	
-	private int currentColor = colorBackground;
+	private int currentColor = COLOR_BACKGROUND;
 	private int alarm = -1;
 	private GUICallback alarmCallback;
 	
@@ -36,7 +36,7 @@ public abstract class Challenge extends Room
 		@Override
 		public void call()
 		{
-			currentColor = colorBackground;
+			currentColor = COLOR_BACKGROUND;
 			master.mouseEnabled = true;
 		}
 	}
@@ -44,7 +44,7 @@ public abstract class Challenge extends Room
 	// Flash green to show correct answer
 	protected void correct(GUICallback callback)
 	{
-		currentColor = colorCorrect;
+		currentColor = COLOR_CORRECT;
 		master.mouseEnabled = false;
 		alarm = 60;
 		alarmCallback = callback;
@@ -53,7 +53,7 @@ public abstract class Challenge extends Room
 	// Flash red to show incorrect answer
 	protected void incorrect()
 	{
-		currentColor = colorIncorrect;
+		currentColor = COLOR_INCORRECT;
 		master.mouseEnabled = false;
 		alarm = 60;
 		alarmCallback = new Reset();
