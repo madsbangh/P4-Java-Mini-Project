@@ -26,7 +26,7 @@ public class Menu extends Room
 	}
 
 	@Override
-	protected void setup()
+	protected void construct()
 	{
 		addElement(new Button(master, "Train Japanese", master.fontRegular, new GoToJapaneseChallenge(), 80, 150, 240, 100));
 		addElement(new Button(master, "Train Danish", master.fontRegular, new GoToDanishChallenge(),     80, 350, 240, 100));

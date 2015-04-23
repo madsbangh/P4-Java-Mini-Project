@@ -15,19 +15,24 @@ public class DanishChallenge extends Challenge
 	@Override
 	protected void setup()
 	{
+		super.setup();
+		
 		// Japanese-specific things
 		translationsProvider = master.translationsManager.danishWordProvider;
 		
-		indexes = new int[3];
 		callbacks = new GUICallback[] {new Correct(), new Incorrect(), new Incorrect()};
 		
 		// indexes is an array with the 3 possible answers. The first one is always the correct answer
 		indexes[0] = translationsProvider.getNextIndex();
+	}
+	
+	@Override
+	protected void construct()
+	{
+		super.construct();
 		
 		// Create the label displaying the Danish word to be guessed
 		addElement(new Label(master, translationsProvider.getWord(indexes[0]), master.fontRegular, 40, 200, 120));
-		
-		super.setup();
 	}
 	
 	public DanishChallenge(Main master)

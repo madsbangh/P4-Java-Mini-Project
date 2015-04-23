@@ -17,21 +17,26 @@ public class JapaneseChallenge extends Challenge
 	@Override
 	protected void setup()
 	{
+		super.setup();
+		
 		// Japanese-specific things
 		translationsProvider = master.translationsManager.japaneseWordProvider;
 		charsProvider = master.translationsManager.japaneseCharProvider;
 		
-		indexes = new int[3];
 		callbacks = new GUICallback[] {new Correct(), new Incorrect(), new Incorrect()};
 		
 		// indexes is an array with the 3 possible answers. The first one is always the correct answer
 		indexes[0] = translationsProvider.getNextIndex();
+	}
 	
+	@Override
+	protected void construct()
+	{
+		super.construct();
+		
 		// Create the label displaying the Japanese word to be guessed
 		addElement(new Label(master, charsProvider.getWord(indexes[0]), master.fontJapanese, 40, 200, 100));
-		addElement(new Label(master, translationsProvider.getWord(indexes[0]), master.fontRegular, 20, 200, 150));
-		
-		super.setup();
+		addElement(new Label(master, translationsProvider.getWord(indexes[0]), master.fontRegular, 20, 200, 150));		
 	}
 	
 	public JapaneseChallenge(Main master)

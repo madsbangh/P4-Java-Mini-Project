@@ -70,7 +70,7 @@ public abstract class Challenge extends Room
 	protected void setup()
 	{
 		rand = new Random();
-		addElement(new Button(master, "Back", master.fontRegular, new GoToMenu(), 0, 0, 100, 50));
+		indexes = new int[3];
 		
 		// Choose a random index for the incorrect answers (which is not equal to the correct answer's index)
 		do
@@ -81,6 +81,15 @@ public abstract class Challenge extends Room
 		{
 			indexes[2] = master.translationsManager.getRandomIndex();
 		} while (indexes[2] == indexes[0] || indexes[2] == indexes[1]);
+	}
+	
+	@Override
+	protected void construct()
+	{
+		// Add the "Back" button
+		addElement(new Button(master, "Back", master.fontRegular, new GoToMenu(), 0, 0, 100, 50));
+		
+		// Add the 3 answer button
 		int pos = rand.nextInt(3);
 		for (int i=0; i<3; i++)
 		{

@@ -24,9 +24,12 @@ public abstract class Room
 			this.nextRoom = nextRoom;
 		}
 	}
-	
+
+	// Setup the room variables etc.
+	protected void setup() {}
 	// Create and set up all the GUI elements
-	protected abstract void setup();
+	protected abstract void construct();
+	// What to be drawn in the background
 	protected abstract void draw();
 	
 	// Add a new GUI element to the GUIElement list of this room
@@ -48,5 +51,6 @@ public abstract class Room
 	{
 		this.master = master;
 		setup();
+		construct();
 	}
 }
