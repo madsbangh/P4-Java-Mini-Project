@@ -14,8 +14,6 @@ public class TranslationsManager
 	private String[] japaneseChars;
 	private String[] danishWords;
 	
-	private int currentIndex = 1;
-	
 	private Random rand;
 	
 	private void loadTransations()
@@ -97,16 +95,12 @@ public class TranslationsManager
 	
 	public int getNextJapaneseIndex()
 	{
-		currentIndex++;
-		currentIndex %= japaneseWords.length;
-		return currentIndex;
+		return getRandomIndex();
 	}
 	
 	public int getNextDanishIndex()
 	{
-		currentIndex++;
-		currentIndex %= danishWords.length;
-		return currentIndex;
+		return getRandomIndex();
 	}
 	
 	public int getRandomIndex()
