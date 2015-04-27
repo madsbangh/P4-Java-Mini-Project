@@ -16,17 +16,14 @@ public class JapaneseChallenge extends Challenge
 	
 	@Override
 	protected void setup()
-	{
-		super.setup();
-		
+	{		
 		// Japanese-specific things
 		translationsProvider = master.translationsManager.japaneseWordProvider;
 		charsProvider = master.translationsManager.japaneseCharProvider;
 		
-		callbacks = new GUICallback[] {new Correct(), new Incorrect(), new Incorrect()};
+		super.setup();	
 		
-		// indexes is an array with the 3 possible answers. The first one is always the correct answer
-		indexes[0] = translationsProvider.getNextIndex();
+		callbacks = new GUICallback[] {new Correct(), new Incorrect(), new Incorrect()};
 	}
 	
 	@Override

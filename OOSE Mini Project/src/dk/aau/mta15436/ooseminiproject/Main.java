@@ -46,6 +46,7 @@ public class Main extends PApplet
 		currentRoom = new Menu(this);
 	}
 	
+	@Override
 	public void draw()
 	{
 		// Update the current room so it can draw its elements and do its logic

@@ -15,15 +15,12 @@ public class DanishChallenge extends Challenge
 	@Override
 	protected void setup()
 	{
-		super.setup();
-		
-		// Japanese-specific things
+		// Danish-specific things
 		translationsProvider = master.translationsManager.danishWordProvider;
 		
-		callbacks = new GUICallback[] {new Correct(), new Incorrect(), new Incorrect()};
+		super.setup();
 		
-		// indexes is an array with the 3 possible answers. The first one is always the correct answer
-		indexes[0] = translationsProvider.getNextIndex();
+		callbacks = new GUICallback[] {new Correct(), new Incorrect(), new Incorrect()};
 	}
 	
 	@Override

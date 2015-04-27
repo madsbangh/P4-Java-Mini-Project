@@ -72,6 +72,9 @@ public abstract class Challenge extends Room
 		rand = new Random();
 		indexes = new int[3];
 		
+		// indexes is an array with the 3 possible answers. The first one is always the correct answer
+		indexes[0] = translationsProvider.getNextIndex();
+		
 		// Choose a random index for the incorrect answers (which is not equal to the correct answer's index)
 		do
 		{
